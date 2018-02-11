@@ -1,25 +1,30 @@
 /*
-Check palindrome in a given string.
+Check if a string is palindrome
 */
 #include <bits/stdc++.h>
 using namespace std;
-void isPalindrome(string s,int h,int l){
-    int tmp=1;
-    while(h<l){
+bool isPalindrome(string s,int h,int l){
+    while(h>l){
         if(s[h]!=s[l]){
-            cout<<"It is not a palindrome"<<'\n';
-            return;
+            return false;
         }
         h--;
         l++;
     }
-    cout<<"It is a palindrome"<<'\n';
+    return true;
 }
 int main(){
+    int h,l;
     string s;
     cin>>s;
-    int h=s.length()-1,l=0;
-    isPalindrome(s,h,l);
+    h=s.length()-1;
+    l=0;
+    if(isPalindrome(s,h,l)){
+        cout<<"It is a palindrome"<<'\n';
+    }
+    else{
+        cout<<"It is not a palindrome"<<'\n';
+    }
 
     return 0;
 }
